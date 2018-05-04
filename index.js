@@ -1,15 +1,16 @@
 "use strict";
-var async = require('async');
-var noble = require('noble');
-var querystring = require('querystring');
-var http = require('http');
+const async = require('async');
+const noble = require('noble');
+const querystring = require('querystring');
+const http = require('http');
 const os = require('os');
+const config = require('./config.js')
 
 
 //POST data to this URL as JSON
-const influxproxyhost = "localhost";
-const influxproxyport = "3001"
-const influxproxypath = "/scanner"
+const proxyhost = config.proxyhost;
+const proxyport = config.proxyport;
+const proxypath = config.proxypath;
 
 var samples = [];
 
@@ -83,9 +84,9 @@ noble.on('discover', function(peripheral) {
 setInterval(function(){
   let post_data = JSON.stringify(samples);
   let post_options = {
-    host: influxproxyhost,
-    port: influxproxyport,
-    path: influxproxypath,
+    host: proxyhost,
+    port: proxyport,
+    path: proxypath,
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
