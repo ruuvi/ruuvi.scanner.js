@@ -1,5 +1,5 @@
 module.exports = {
   proxyhost: "localhost",
   proxyport: 3001,
-  proxypath: 'scanner'
+  proxypath: '/scanner'
 }

@@ -20,6 +20,7 @@ noble.on('stateChange', function(state) {
   if (state === 'poweredOn') {
     noble.startScanning([], true);
   } else {
+    console.log("Error in BLE scanning")
     noble.stopScanning();
   }
 });
@@ -103,7 +104,7 @@ setInterval(function(){
   });
 
   // post the data
-    console.log("Posting " + samples.length + " data points");
+    // console.log("Posting " + samples.length + " data points");
     post_req.write(post_data);
     post_req.end(function(){samples = [];});
     
@@ -114,10 +115,10 @@ setInterval(function(){
 }, 10000);
 
 process
-  .on('unhandledRejection', (reason, p) => {
-    console.error(reason, 'Unhandled Rejection at Promise', p);
-  })
-  .on('uncaughtException', err => {
-    console.error(err, 'Uncaught Exception thrown');
+.on('unhandledRejection', (reason, p) => {
+  console.error(reason, 'Unhandled Rejection at Promise', p);
+})
+.on('uncaughtException', err => {
+  console.error(err, 'Uncaught Exception thrown');
     // process.exit(1);
   });
