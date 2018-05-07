@@ -25,8 +25,8 @@
     "async": "^2.6.0",
     "http": "0.0.0",
     "noble": "^1.9.1",
-    "npm": "^5.7.1",
+    "npm": "^5.8.0",
     "querystring": "^0.2.0",
-    "ruuvi.endpoints.js": "^1.0.0"
+    "ruuvi.endpoints.js": "^1.1.3"
   }
 }
