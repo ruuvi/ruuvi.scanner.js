@@ -59,11 +59,6 @@ noble.on('discover', function(peripheral) {
         sample.type = "Ruuvi";
 
       }
-      else if(manufacturerDataString.startsWith('A602'))
-      {
-        //console.log("Queuing Bosch data");
-        sample.type = "Bosch";
-      }
       else 
       {
         //console.log("Queuing Unknown data");
